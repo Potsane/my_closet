@@ -5,9 +5,9 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.example.pmohale.mycloset.database.internal.OutfitDao;
-import com.example.pmohale.mycloset.database.internal.WardrobeItemDao;
-import com.example.pmohale.mycloset.database.internal.WeatherDao;
+import com.example.pmohale.mycloset.database.dao.OutfitDao;
+import com.example.pmohale.mycloset.database.dao.WardrobeItemDao;
+import com.example.pmohale.mycloset.database.dao.WeatherDao;
 import com.example.pmohale.mycloset.entity.WeatherObject;
 
 /**

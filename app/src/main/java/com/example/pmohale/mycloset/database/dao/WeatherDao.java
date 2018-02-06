@@ -1,4 +1,4 @@
-package com.example.pmohale.mycloset.database.internal;
+package com.example.pmohale.mycloset.database.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
