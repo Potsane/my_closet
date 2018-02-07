@@ -12,7 +12,7 @@ import com.example.pmohale.mycloset.entity.WeatherObject;
 public class AddWeatherItemAsyncTask extends AsyncTask<Void, Void, Void> {
 
     private WeatherDao weatherDao;
-    
+
     private WeatherObject weatherObject;
 
     public AddWeatherItemAsyncTask(WeatherDao weatherDao, WeatherObject weatherObject) {
