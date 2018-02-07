@@ -3,7 +3,7 @@ package com.example.pmohale.mycloset.database.dao;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 
-import com.example.pmohale.mycloset.entity.WardrobeItem;
+import com.example.pmohale.mycloset.entity.WeatherObject;
 
 /**
  * Created by PMohale on 2018/02/05.
@@ -13,5 +13,5 @@ import com.example.pmohale.mycloset.entity.WardrobeItem;
 public interface WeatherDao {
 
     @Insert
-    void insertWeatherObject(WardrobeItem item);
+    void addWeatherObject(WeatherObject weatherObject);
 }
