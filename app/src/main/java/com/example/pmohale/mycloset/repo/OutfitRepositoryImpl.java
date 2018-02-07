@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 import com.example.pmohale.mycloset.database.dao.OutfitDao;
 import com.example.pmohale.mycloset.entity.Outfit;
 import com.example.pmohale.mycloset.repo.internal.OutfitRepository;
+import com.example.pmohale.mycloset.service.AddOutfitAsyncTask;
 
 import java.util.List;
 
@@ -23,12 +24,11 @@ public class OutfitRepositoryImpl implements OutfitRepository{
 
     @Override
     public LiveData<List<Outfit>> getAllOutfits() {
-        //return outfitDao.getAllOutfits();
-        return  null;
+        return outfitDao.getAllOutfits();
     }
 
     @Override
     public void addOutfit(Outfit outfit) {
-
+        new AddOutfitAsyncTask(outfitDao, outfit);
     }
 }
