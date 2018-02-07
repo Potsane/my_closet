@@ -1,5 +1,7 @@
 package com.example.pmohale.mycloset.entity;
 
+import android.arch.persistence.room.Entity;
+
 import com.example.pmohale.mycloset.entity.internal.PersistableEntity;
 
 import java.util.Date;
@@ -8,6 +10,7 @@ import java.util.Date;
  * Created by PMohale on 2018/02/05.
  */
 
+@Entity(tableName = "weather")
 public class WeatherObject extends PersistableEntity {
 
     private int icon;
