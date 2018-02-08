@@ -14,11 +14,11 @@ public class MainActivityViewModel extends ViewModel {
 
     private final ClosetRepository repository;
 
-    private final LiveData<WeatherObject> weather;
+    private  LiveData<WeatherObject> weather;
 
     public MainActivityViewModel(ClosetRepository closetRepository) {
         repository = closetRepository;
-        weather = closetRepository.getWeather();
+        //weather = closetRepository.getWeather();
     }
 
     public LiveData<WeatherObject> getWeather() {

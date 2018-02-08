@@ -3,6 +3,7 @@ package com.example.pmohale.mycloset.database.dao;
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.Query;
 
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 
@@ -17,6 +18,6 @@ public interface WardrobeItemDao {
     @Insert
     void addItem(WardrobeItem item);
 
-    //ADD SQL TO DO THIS
+    @Query("SELECT * FROM wardrobe_items")
     LiveData<List<WardrobeItem>> getAllItems();
 }
