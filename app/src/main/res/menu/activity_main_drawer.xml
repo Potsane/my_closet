@@ -5,33 +5,30 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_my_closet"
+            android:icon="@android:drawable/ic_menu_sort_alphabetically"
+            android:title="My closet" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_my_outfits"
+            android:icon="@android:drawable/ic_menu_sort_by_size"
+            android:title="My outfits" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_my_profile"
+            android:icon="@android:drawable/sym_contact_card"
+            android:title="My profile" />
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Customize">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_what_to_wear"
+                android:icon="@android:drawable/ic_menu_info_details"
+                android:title="What to wear today" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:icon="@android:drawable/btn_star_big_off"
+                android:title="Prefered outfits" />
         </menu>
     </item>
 
