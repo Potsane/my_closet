@@ -22,7 +22,8 @@
         <activity
             android:name=".view.WardrobeItemActivity"
             android:label="@string/title_activity_wardrobe_item"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.AddWardrobeItemActivity"></activity>
     </application>
 
 </manifest>
