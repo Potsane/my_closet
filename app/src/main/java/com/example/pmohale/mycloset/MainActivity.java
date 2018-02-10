@@ -11,7 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.pmohale.mycloset.view.WardrobeItemActivity;
+import com.example.pmohale.mycloset.view.list.WardrobeItemsListActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_my_closet) {
-            startActivity(new Intent(this, WardrobeItemActivity.class));
+            startActivity(new Intent(this, WardrobeItemsListActivity.class));
         }
 
         /*else if (id == R.id.nav_gallery) {

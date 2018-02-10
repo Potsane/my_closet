@@ -20,10 +20,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.WardrobeItemActivity"
+            android:name=".view.list.WardrobeItemsListActivity"
             android:label="@string/title_activity_wardrobe_item"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.AddWardrobeItemActivity"></activity>
+        <activity android:name=".view.add.AddWardrobeItemActivity"></activity>
     </application>
 
 </manifest>

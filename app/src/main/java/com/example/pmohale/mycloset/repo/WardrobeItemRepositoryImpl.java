@@ -28,6 +28,7 @@ public class WardrobeItemRepositoryImpl implements WardrobeItemRepository {
 
     @Override
     public void addWardrobeItem(WardrobeItem item) {
-        new AddWardrobeItemAsyncTask(wardrobeItemDao, item);
+        new AddWardrobeItemAsyncTask(wardrobeItemDao, item).execute();
+        System.out.println("Does insert!");
     }
 }

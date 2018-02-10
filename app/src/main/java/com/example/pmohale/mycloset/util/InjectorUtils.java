@@ -22,6 +22,7 @@ public class InjectorUtils {
 
     private static WeatherItemRepository weatherItemRepository = null;
 
+    //TODO: refactor this methods
     public static OutfitRepository getOutfitRepository(final Context context) {
         if(outfitRepository == null){
             synchronized (OutfitRepository.class){

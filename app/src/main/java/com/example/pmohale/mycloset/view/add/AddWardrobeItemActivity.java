@@ -1,5 +1,6 @@
-package com.example.pmohale.mycloset.view;
+package com.example.pmohale.mycloset.view.add;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -11,7 +12,9 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.pmohale.mycloset.R;
-import com.example.pmohale.mycloset.view.dialog.ItemTypePickerFragment;
+import com.example.pmohale.mycloset.view.list.WardrobeItemsListActivity;
+import com.example.pmohale.mycloset.view.add.dialog.ItemTypePickerFragment;
+import com.example.pmohale.mycloset.viewmodel.AddWardrobeItemViewModel;
 
 public class AddWardrobeItemActivity extends AppCompatActivity implements View.OnFocusChangeListener, ItemTypePickerFragment.ListDialogListener {
 
@@ -43,7 +46,8 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
 
     private View focusedView;
 
-    //private
+    private AddWardrobeItemViewModel addWardrobeItemViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +70,8 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        addWardrobeItemViewModel = ViewModelProviders.of(this).get(AddWardrobeItemViewModel.class);
     }
 
     @Override
@@ -79,12 +85,11 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent(this, WardrobeItemActivity.class);
+                Intent intent = new Intent(this, WardrobeItemsListActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.action_add_item:
-
-
+                addWardrobeItem();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -149,7 +154,7 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
         this.focusedView = focusedView;
     }
 
-    private void addWardrobeItem(){
-
+    private void addWardrobeItem() {
+        addWardrobeItemViewModel.addWardrobeItem(editTextItemType.getText().toString(), editTextDescription.getText().toString(), editTextColor.getText().toString(), editTextDressCode.getText().toString(), editTextWeatherCondition.getText().toString());
     }
 }
