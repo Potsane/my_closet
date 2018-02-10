@@ -9,12 +9,27 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.view.dialog.ItemTypePickerFragment;
 
 public class AddWardrobeItemActivity extends AppCompatActivity implements View.OnFocusChangeListener, ItemTypePickerFragment.ListDialogListener {
+
+    private static final String[] COLORS = {"Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
+
+    private static final String[] ITEM_TYPES = {"T-Shirt", "Pants", "Top", "Jacket", "Coat", "Sweater", "Jeans"};
+
+    private static final String[] WEATHER_CONDITIONS = {"Sunny", "Rainy", "Windy", "Cloudy"};
+
+    private static final String[] DRESS_CODES = {"Casual", "Smart casual", "Formal"};
+
+    private static final String ITEMS_DIALOG_TITTLE = "Pick item type";
+
+    private static final String COLOR_DIALOG_TITTLE = "Pick item color";
+
+    private static final String WEATHER_DIALOG_TITTLE = "Pick suitable weather condition";
+
+    private static final String DRESS_CODE_DIALOG_TITTLE = "Pick suitable dress code";
 
     private EditText editTextItemType;
 
@@ -22,17 +37,13 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
 
     private EditText editTextColor;
 
-    private EditText editTextSize;
-
-    private EditText editTextBrand;
-
     private EditText editTextDressCode;
 
     private EditText editTextWeatherCondition;
 
-    private EditText editTextDate;
+    private View focusedView;
 
-
+    //private
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,20 +58,11 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
         editTextColor = findViewById(R.id.edit_text_color);
         editTextColor.setOnFocusChangeListener(this);
 
-        editTextSize = findViewById(R.id.edit_text_size);
-        editTextSize.setOnFocusChangeListener(this);
-
-        editTextBrand = findViewById(R.id.edit_text_brand);
-        editTextBrand.setOnFocusChangeListener(this);
-
         editTextDressCode = findViewById(R.id.edit_text_dress_code);
         editTextDressCode.setOnFocusChangeListener(this);
 
         editTextWeatherCondition = findViewById(R.id.edit_text_weather_condition);
         editTextWeatherCondition.setOnFocusChangeListener(this);
-
-        editTextDate = findViewById(R.id.edit_text_date_acquired);
-        editTextDate.setOnFocusChangeListener(this);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -80,23 +82,74 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
                 Intent intent = new Intent(this, WardrobeItemActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_add_item:
+
+
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
+    //TODO: this is badly wtitten must refactor into a utility class
     @Override
     public void onFocusChange(View view, boolean hasFocus) {
+
+        setFocusedView(view);
 
         if (view.getId() == R.id.edit_text_item_type && view.hasFocus()) {
 
             ItemTypePickerFragment pickerFragment = new ItemTypePickerFragment();
+            Bundle arguements = new Bundle();
+            arguements.putStringArray("list", ITEM_TYPES);
+            arguements.putString("tittle", ITEMS_DIALOG_TITTLE);
+            pickerFragment.setArguments(arguements);
+            pickerFragment.show(getFragmentManager(), "Items type");
+        }
+        if (view.getId() == R.id.edit_text_color && view.hasFocus()) {
+
+            ItemTypePickerFragment pickerFragment = new ItemTypePickerFragment();
+            Bundle arguements = new Bundle();
+            arguements.putStringArray("list", COLORS);
+            arguements.putString("tittle", COLOR_DIALOG_TITTLE);
+            pickerFragment.setArguments(arguements);
+            pickerFragment.show(getFragmentManager(), "Items type");
+        }
+        if (view.getId() == R.id.edit_text_weather_condition && view.hasFocus()) {
+
+            ItemTypePickerFragment pickerFragment = new ItemTypePickerFragment();
+            Bundle arguements = new Bundle();
+            arguements.putStringArray("list", WEATHER_CONDITIONS);
+            arguements.putString("tittle", WEATHER_DIALOG_TITTLE);
+            pickerFragment.setArguments(arguements);
+            pickerFragment.show(getFragmentManager(), "Items type");
+        }
+        if (view.getId() == R.id.edit_text_dress_code && view.hasFocus()) {
+
+            ItemTypePickerFragment pickerFragment = new ItemTypePickerFragment();
+            Bundle arguements = new Bundle();
+            arguements.putStringArray("list", DRESS_CODES);
+            arguements.putString("tittle", DRESS_CODE_DIALOG_TITTLE);
+            pickerFragment.setArguments(arguements);
             pickerFragment.show(getFragmentManager(), "Items type");
         }
     }
 
     @Override
-    public void onClick(int position) {
-        Toast.makeText(this, "cliked", Toast.LENGTH_LONG).show();
+    public void onSelectedDialogItem(String value) {
+        EditText currentFocusedEditeText = (EditText) getFocusedView();
+        currentFocusedEditeText.setText(value);
+    }
+
+    private View getFocusedView() {
+        return focusedView;
+    }
+
+    private void setFocusedView(View focusedView) {
+        this.focusedView = focusedView;
+    }
+
+    private void addWardrobeItem(){
+
     }
 }

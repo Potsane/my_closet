@@ -18,7 +18,7 @@ import com.example.pmohale.mycloset.util.DateConverter;
  * Created by PMohale on 2018/02/05.
  */
 
-@Database(entities = {WeatherObject.class, Outfit.class, WardrobeItem.class}, version = 2)
+@Database(entities = {WeatherObject.class, Outfit.class, WardrobeItem.class}, version = 3)
 @TypeConverters(DateConverter.class)
 public abstract class ClosetDatabase extends RoomDatabase {
 

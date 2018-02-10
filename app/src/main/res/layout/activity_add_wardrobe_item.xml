@@ -33,6 +33,23 @@
                 android:textColor="@android:color/white"/>
 
             <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/dummy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item type"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -87,42 +104,10 @@
                 android:layout_margin="10dp">
 
                 <AutoCompleteTextView
-                    android:id="@+id/edit_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Size"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-
-                <AutoCompleteTextView
-                    android:id="@+id/edit_text_brand"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Size"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-
-                <AutoCompleteTextView
                     android:id="@+id/edit_text_dress_code"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Suitable dress code"
+                    android:hint="Suitable weather condition"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true" />
@@ -145,22 +130,6 @@
 
             </android.support.design.widget.TextInputLayout>
 
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-
-                <AutoCompleteTextView
-                    android:id="@+id/edit_text_date_acquired"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Date acquired"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
 
 
         </LinearLayout>
