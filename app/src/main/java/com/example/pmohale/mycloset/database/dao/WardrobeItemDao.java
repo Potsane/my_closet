@@ -20,4 +20,7 @@ public interface WardrobeItemDao {
 
     @Query("SELECT * FROM wardrobe_items")
     LiveData<List<WardrobeItem>> getAllItems();
+
+    @Query("SELECT * FROM wardrobe_items WHERE id = :id")
+    LiveData<WardrobeItem> getWardrobeItem(long id);
 }

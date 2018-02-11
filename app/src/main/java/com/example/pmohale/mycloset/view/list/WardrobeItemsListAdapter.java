@@ -19,9 +19,11 @@ class WardrobeItemsListAdapter extends RecyclerView.Adapter<WardrobeItemsListAda
 
     private List<WardrobeItem> wardrobeItems;
 
-    public WardrobeItemsListAdapter(List<WardrobeItem> wardrobeItems) {
-        this.wardrobeItems = wardrobeItems;
+    private WardrobeItemsListAdapterOnItemClickHandler onItemClickHandler;
 
+    public WardrobeItemsListAdapter(List<WardrobeItem> wardrobeItems, WardrobeItemsListAdapterOnItemClickHandler onItemClickHandler) {
+        this.wardrobeItems = wardrobeItems;
+        this.onItemClickHandler = onItemClickHandler;
     }
 
     @Override
@@ -36,6 +38,8 @@ class WardrobeItemsListAdapter extends RecyclerView.Adapter<WardrobeItemsListAda
 
         holder.descriptionTextView.setText(wardrobeItem.getColor() + " " + wardrobeItem.getType());
         holder.conditionsTextView.setText(wardrobeItem.getSuitableDressCode() + " " + wardrobeItem.getSuitableWeatherCondition());
+        holder.idTextView.setText(Long.toString(wardrobeItem.getId()));
+
     }
 
     @Override
@@ -51,15 +55,31 @@ class WardrobeItemsListAdapter extends RecyclerView.Adapter<WardrobeItemsListAda
         notifyDataSetChanged();
     }
 
-    public class WardrobeItemViewHolder extends RecyclerView.ViewHolder {
+    public class WardrobeItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView descriptionTextView;
         TextView conditionsTextView;
+        TextView idTextView;
 
         public WardrobeItemViewHolder(View view) {
             super(view);
             descriptionTextView = view.findViewById(R.id.text_view_description);
             conditionsTextView = view.findViewById(R.id.text_view_usage);
+            idTextView = view.findViewById(R.id.text_view_id);
+
+            view.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            System.out.println("gets here.....");
+            int position = getAdapterPosition();
+            long id = wardrobeItems.get(position).getId();
+            onItemClickHandler.onItemClick(id);
+        }
+    }
+
+    public interface WardrobeItemsListAdapterOnItemClickHandler {
+        void onItemClick(long id);
     }
 }

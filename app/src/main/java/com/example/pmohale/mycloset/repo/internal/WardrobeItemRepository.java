@@ -15,4 +15,6 @@ public interface WardrobeItemRepository {
     LiveData<List<WardrobeItem>> getAllWardrobeItems();
 
     void addWardrobeItem(WardrobeItem item);
+
+    LiveData<WardrobeItem> getWardrobeItem(long id);
 }

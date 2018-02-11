@@ -30,4 +30,9 @@ public class WardrobeItemRepositoryImpl implements WardrobeItemRepository {
     public void addWardrobeItem(WardrobeItem item) {
         new AddWardrobeItemAsyncTask(wardrobeItemDao, item).execute();
     }
+
+    @Override
+    public LiveData<WardrobeItem> getWardrobeItem(long id) {
+        return wardrobeItemDao.getWardrobeItem(id);
+    }
 }
