@@ -24,4 +24,6 @@ public class AddWardrobeItemViewModel extends AndroidViewModel{
         WardrobeItem item = new WardrobeItem(description,type,color,suitableDressCode,suitableWeatherCondition);
         itemRepository.addWardrobeItem(item);
     }
+
+
 }

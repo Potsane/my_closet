@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface WardrobeItemRepository {
 
-    LiveData<List<WardrobeItem>> getAllOutfits();
+    LiveData<List<WardrobeItem>> getAllWardrobeItems();
 
     void addWardrobeItem(WardrobeItem item);
 }

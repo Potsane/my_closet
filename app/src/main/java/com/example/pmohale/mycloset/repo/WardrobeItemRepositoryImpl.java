@@ -22,13 +22,12 @@ public class WardrobeItemRepositoryImpl implements WardrobeItemRepository {
     }
 
     @Override
-    public LiveData<List<WardrobeItem>> getAllOutfits() {
+    public LiveData<List<WardrobeItem>> getAllWardrobeItems() {
         return wardrobeItemDao.getAllItems();
     }
 
     @Override
     public void addWardrobeItem(WardrobeItem item) {
         new AddWardrobeItemAsyncTask(wardrobeItemDao, item).execute();
-        System.out.println("Does insert!");
     }
 }
