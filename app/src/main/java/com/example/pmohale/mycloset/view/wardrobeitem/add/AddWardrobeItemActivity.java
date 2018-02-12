@@ -1,4 +1,4 @@
-package com.example.pmohale.mycloset.view.add;
+package com.example.pmohale.mycloset.view.wardrobeitem.add;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.pmohale.mycloset.R;
-import com.example.pmohale.mycloset.view.list.WardrobeItemsListActivity;
-import com.example.pmohale.mycloset.view.add.dialog.ItemTypePickerFragment;
+import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
+import com.example.pmohale.mycloset.view.wardrobeitem.add.dialog.ItemTypePickerFragment;
 import com.example.pmohale.mycloset.viewmodel.WardrobeItemViewModel;
 
 public class AddWardrobeItemActivity extends AppCompatActivity implements View.OnFocusChangeListener, ItemTypePickerFragment.ListDialogListener {

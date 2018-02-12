@@ -29,7 +29,7 @@ public abstract class ClosetDatabase extends RoomDatabase {
     private static ClosetDatabase instance;
 
     //alt -  can make the method synchronized ie public static synchronized
-    public static ClosetDatabase getInstance(Context context) {
+    public synchronized static ClosetDatabase getInstance(Context context) {
         if (instance == null) {
             synchronized (LOCK) {
                 instance = Room.databaseBuilder(context.getApplicationContext(), ClosetDatabase.class, ClosetDatabase.DATABASE_NAME).build();

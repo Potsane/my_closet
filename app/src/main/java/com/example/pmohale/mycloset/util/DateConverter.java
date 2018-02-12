@@ -4,11 +4,8 @@ import android.arch.persistence.room.TypeConverter;
 
 import java.util.Date;
 
-/**
- * Created by PMohale on 2018/02/07.
- */
-
 public class DateConverter {
+
     @TypeConverter
     public static Date toDate(Long timestamp) {
         return timestamp == null ? null : new Date(timestamp);

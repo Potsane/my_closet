@@ -1,4 +1,4 @@
-package com.example.pmohale.mycloset.view.detail;
+package com.example.pmohale.mycloset.view.wardrobeitem.detail;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
-import com.example.pmohale.mycloset.view.list.WardrobeItemsListActivity;
+import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
 import com.example.pmohale.mycloset.viewmodel.WardrobeItemViewModel;
 
 public class WardrobeItemDetailsActivity extends AppCompatActivity {
@@ -75,7 +75,7 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
         textViewSuitableDressCode.setText(wardrobeItem.getSuitableDressCode());
     }
 
-    private void deleteIten(){
+    private void deleteItem(){
 
     }
 

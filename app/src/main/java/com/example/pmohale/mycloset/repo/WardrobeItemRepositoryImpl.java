@@ -5,7 +5,7 @@ import android.arch.lifecycle.LiveData;
 import com.example.pmohale.mycloset.database.dao.WardrobeItemDao;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.repo.internal.WardrobeItemRepository;
-import com.example.pmohale.mycloset.service.AddWardrobeItemAsyncTask;
+import com.example.pmohale.mycloset.task.AddWardrobeItemAsyncTask;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.pmohale.mycloset.view.add.dialog;
+package com.example.pmohale.mycloset.view.wardrobeitem.add.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -18,6 +18,7 @@ public class WardrobeItemViewModel extends AndroidViewModel{
 
     private WardrobeItemRepository itemRepository;
 
+
     public WardrobeItemViewModel(Application application) {
         super(application);
         itemRepository = InjectorUtils.getWardrobeItemRepository(application);
@@ -34,6 +35,10 @@ public class WardrobeItemViewModel extends AndroidViewModel{
 
     public LiveData<WardrobeItem> getWardrobeItem(long id){
         return itemRepository.getWardrobeItem(id);
+    }
+
+    public void deleteItem(){
+
     }
 
 

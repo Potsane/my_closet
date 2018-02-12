@@ -1,4 +1,4 @@
-package com.example.pmohale.mycloset.view.list;
+package com.example.pmohale.mycloset.view.wardrobeitem.list;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -19,8 +19,8 @@ import android.view.View;
 import com.example.pmohale.mycloset.MainActivity;
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
-import com.example.pmohale.mycloset.view.add.AddWardrobeItemActivity;
-import com.example.pmohale.mycloset.view.detail.WardrobeItemDetailsActivity;
+import com.example.pmohale.mycloset.view.wardrobeitem.add.AddWardrobeItemActivity;
+import com.example.pmohale.mycloset.view.wardrobeitem.detail.WardrobeItemDetailsActivity;
 import com.example.pmohale.mycloset.viewmodel.WardrobeItemViewModel;
 
 import java.util.List;
