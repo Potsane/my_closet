@@ -14,12 +14,12 @@ import java.util.List;
  * Created by PMohale on 2018/02/12.
  */
 
-public class WardrobeItemLIstViewModel extends AndroidViewModel {
+public class WardrobeItemsListViewModel extends AndroidViewModel {
 
     private WardrobeItemRepository itemRepository;
 
 
-    public WardrobeItemLIstViewModel(Application application) {
+    public WardrobeItemsListViewModel(Application application) {
         super(application);
         itemRepository = InjectorUtils.getWardrobeItemRepository(application);
     }

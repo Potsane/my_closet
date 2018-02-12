@@ -1,3 +1,4 @@
+/*
 package com.example.pmohale.mycloset.viewmodel;
 
 import android.app.Application;
@@ -10,9 +11,11 @@ import com.example.pmohale.mycloset.util.InjectorUtils;
 
 import java.util.List;
 
+*/
 /**
  * Created by PMohale on 2018/02/10.
- */
+ *//*
+
 
 public class WardrobeItemViewModel extends AndroidViewModel{
 
@@ -43,3 +46,4 @@ public class WardrobeItemViewModel extends AndroidViewModel{
 
 
 }
+*/

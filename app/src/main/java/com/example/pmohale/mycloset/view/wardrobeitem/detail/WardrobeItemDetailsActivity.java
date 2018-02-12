@@ -12,16 +12,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
-import com.example.pmohale.mycloset.viewmodel.WardrobeItemViewModel;
 
 public class WardrobeItemDetailsActivity extends AppCompatActivity {
 
-    private WardrobeItemViewModel wardrobeItemViewModel;
+    private WardrobeItemDetailsViewModel wardrobeItemDetailsViewModel;
 
     private TextView textViewItemColorAndType;
 
@@ -30,6 +30,8 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
     private TextView textViewSuitableWeatherConndition;
 
     private TextView textViewSuitableDressCode;
+
+    private Button buttonDeleteItem;
 
     private long currentItemId;
 
@@ -40,12 +42,13 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_wardrobe_item_details2);
 
         Bundle extras = getIntent().getExtras();
-        long currentItemId = extras.getLong("id");
+        currentItemId = extras.getLong("id");
 
         textViewItemColorAndType = (TextView) findViewById(R.id.text_view_color_type);
         textViewItemDescription = (TextView) findViewById(R.id.text_view_description);
         textViewSuitableWeatherConndition = (TextView) findViewById(R.id.text_view_suitable_weather);
         textViewSuitableDressCode = (TextView) findViewById(R.id.text_view_dress_code);
+
 
         setupToolBar();
         setupBackButton();
@@ -53,14 +56,10 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
         setupViewModels(currentItemId);
     }
 
-    private void getItem(){
-
-    }
-
     private void setupViewModels(long id) {
-        wardrobeItemViewModel = ViewModelProviders.of(this).get(WardrobeItemViewModel.class);
+        wardrobeItemDetailsViewModel = ViewModelProviders.of(this).get(WardrobeItemDetailsViewModel.class);
 
-        wardrobeItemViewModel.getWardrobeItem(id).observe(this, new Observer<WardrobeItem>() {
+        wardrobeItemDetailsViewModel.getWardrobeItem(id).observe(this, new Observer<WardrobeItem>() {
             @Override
             public void onChanged(@Nullable WardrobeItem wardrobeItem) {
                 updateView(wardrobeItem);
@@ -69,14 +68,16 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
     }
 
     private void updateView(WardrobeItem wardrobeItem) {
-        textViewItemColorAndType.setText(wardrobeItem.getColor() +" "+ wardrobeItem.getType());
+        textViewItemColorAndType.setText(wardrobeItem.getColor() + " " + wardrobeItem.getType());
         textViewItemDescription.setText(wardrobeItem.getDescription());
         textViewSuitableWeatherConndition.setText(wardrobeItem.getSuitableWeatherCondition());
         textViewSuitableDressCode.setText(wardrobeItem.getSuitableDressCode());
     }
 
-    private void deleteItem(){
-
+    private void deleteCurrentItem() {
+        wardrobeItemDetailsViewModel.deleteWardrobeItem(currentItemId);
+        Intent intent = new Intent(WardrobeItemDetailsActivity.this, WardrobeItemsListActivity.class);
+        startActivity(intent);
     }
 
     private void setupBackButton() {
@@ -96,6 +97,14 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Item added to your favoyrites list", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+
+        buttonDeleteItem = (Button) findViewById(R.id.button_remove_item);
+        buttonDeleteItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteCurrentItem();
             }
         });
     }

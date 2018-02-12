@@ -24,4 +24,8 @@ public class WardrobeItemDetailsViewModel extends AndroidViewModel {
     public LiveData<WardrobeItem> getWardrobeItem(long id) {
         return itemRepository.getWardrobeItem(id);
     }
+
+    public void deleteWardrobeItem(long id) {
+        itemRepository.deleteWardrobeItem(id);
+    }
 }

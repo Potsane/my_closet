@@ -21,7 +21,6 @@ import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.view.wardrobeitem.add.AddWardrobeItemActivity;
 import com.example.pmohale.mycloset.view.wardrobeitem.detail.WardrobeItemDetailsActivity;
-import com.example.pmohale.mycloset.viewmodel.WardrobeItemViewModel;
 
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
 
     private WardrobeItemsListAdapter wardrobeItemsListAdapter;
 
-    private WardrobeItemViewModel wardrobeItemViewModel;
+    private WardrobeItemsListViewModel wardrobeItemsListViewModel;
 
 
     @Override
@@ -74,9 +73,9 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
     }
 
     private void setupViewModels() {
-        wardrobeItemViewModel = ViewModelProviders.of(this).get(WardrobeItemViewModel.class);
+        wardrobeItemsListViewModel = ViewModelProviders.of(this).get(WardrobeItemsListViewModel.class);
 
-        wardrobeItemViewModel.getAllWardrobeItems().observe(this, new Observer<List<WardrobeItem>>() {
+        wardrobeItemsListViewModel.getAllWardrobeItems().observe(this, new Observer<List<WardrobeItem>>() {
             @Override
             public void onChanged(@Nullable List<WardrobeItem> wardrobeItems) {
                 wardrobeItemsListAdapter.setWardrobeItems(wardrobeItems);

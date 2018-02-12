@@ -1,4 +1,4 @@
-package com.example.pmohale.mycloset.task;
+package com.example.pmohale.mycloset.task.outfit;
 
 import android.os.AsyncTask;
 

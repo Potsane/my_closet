@@ -5,7 +5,8 @@ import android.arch.lifecycle.LiveData;
 import com.example.pmohale.mycloset.database.dao.WardrobeItemDao;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.repo.internal.WardrobeItemRepository;
-import com.example.pmohale.mycloset.task.AddWardrobeItemAsyncTask;
+import com.example.pmohale.mycloset.task.wardrobeitem.AddWardrobeItemAsyncTask;
+import com.example.pmohale.mycloset.task.wardrobeitem.DeleteWardrobeItemAsyncTask;
 
 import java.util.List;
 
@@ -34,5 +35,10 @@ public class WardrobeItemRepositoryImpl implements WardrobeItemRepository {
     @Override
     public LiveData<WardrobeItem> getWardrobeItem(long id) {
         return wardrobeItemDao.getWardrobeItem(id);
+    }
+
+    @Override
+    public void deleteWardrobeItem(long id) {
+        new DeleteWardrobeItemAsyncTask(wardrobeItemDao, id).execute();
     }
 }

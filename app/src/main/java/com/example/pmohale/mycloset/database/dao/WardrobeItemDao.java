@@ -23,4 +23,7 @@ public interface WardrobeItemDao {
 
     @Query("SELECT * FROM wardrobe_items WHERE id = :id")
     LiveData<WardrobeItem> getWardrobeItem(long id);
+
+    @Query("DELETE FROM wardrobe_items WHERE id = :id")
+    void deleteWardrobeItem(long id);
 }

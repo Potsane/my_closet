@@ -72,7 +72,6 @@ class WardrobeItemsListAdapter extends RecyclerView.Adapter<WardrobeItemsListAda
 
         @Override
         public void onClick(View view) {
-            System.out.println("gets here.....");
             int position = getAdapterPosition();
             long id = wardrobeItems.get(position).getId();
             onItemClickHandler.onItemClick(id);

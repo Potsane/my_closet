@@ -14,7 +14,6 @@ import android.widget.EditText;
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
 import com.example.pmohale.mycloset.view.wardrobeitem.add.dialog.ItemTypePickerFragment;
-import com.example.pmohale.mycloset.viewmodel.WardrobeItemViewModel;
 
 public class AddWardrobeItemActivity extends AppCompatActivity implements View.OnFocusChangeListener, ItemTypePickerFragment.ListDialogListener {
 
@@ -46,7 +45,7 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
 
     private View focusedView;
 
-    private WardrobeItemViewModel addWardrobeItemViewModel;
+    private AddWardrobeItemViewModel addWardrobeItemViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +70,7 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        addWardrobeItemViewModel = ViewModelProviders.of(this).get(WardrobeItemViewModel.class);
+        addWardrobeItemViewModel = ViewModelProviders.of(this).get(AddWardrobeItemViewModel.class);
     }
 
     @Override
