@@ -19,7 +19,7 @@ public class WardrobeItem extends PersistableEntity {
 
     private String suitableDressCode;
 
-    private String suitableWeatherCondition;
+        private String suitableWeatherCondition;
 
 
     public WardrobeItem(String description, String type, String color, String suitableDressCode, String suitableWeatherCondition) {

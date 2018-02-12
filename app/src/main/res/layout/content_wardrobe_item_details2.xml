@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.pmohale.mycloset.view.detail.WardrobeItemDetailsActivity2">
+    <!--tools:showIn="@layout/activity_wardrobe_item_details2">-->
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_view_color_type"
+                android:layout_width="320dp"
+                android:layout_height="31dp"
+                android:text="Green T-shirt"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_view_description"
+                android:layout_width="320dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="12dp"
+                android:text="Brief Description"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_color_type" />
+
+            <TextView
+                android:id="@+id/text_view_dress_code"
+                android:layout_width="320dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="4dp"
+                android:text="Dress code"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_description" />
+
+            <TextView
+                android:id="@+id/text_view_suitable_weather"
+                android:layout_width="320dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="4dp"
+                android:text="TextView"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_dress_code" />
+
+            <TextView
+                android:id="@+id/text_view_devider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@android:color/darker_gray"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_suitable_weather" />
+
+            <Button
+                android:id="@+id/button"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="79dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
+                android:drawableLeft="@android:drawable/ic_menu_delete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_devider" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="10dp" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.v4.widget.NestedScrollView>

@@ -20,7 +20,7 @@ import com.example.pmohale.mycloset.MainActivity;
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.view.add.AddWardrobeItemActivity;
-import com.example.pmohale.mycloset.view.detail.WardrobeItemDetailsActivity;
+import com.example.pmohale.mycloset.view.detail.WardrobeItemDetailsActivity2;
 import com.example.pmohale.mycloset.viewmodel.WardrobeItemViewModel;
 
 import java.util.List;
@@ -32,6 +32,7 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
     private WardrobeItemsListAdapter wardrobeItemsListAdapter;
 
     private WardrobeItemViewModel wardrobeItemViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.list_wardrobe_items, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -82,9 +84,10 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
         });
     }
 
+
     @Override
     public void onItemClick(long id) {
-        Intent wardrobeItemDetailsIntent = new Intent(this, WardrobeItemDetailsActivity.class);
+        Intent wardrobeItemDetailsIntent = new Intent(this, WardrobeItemDetailsActivity2.class);
         wardrobeItemDetailsIntent.putExtra("id", id);
         startActivity(wardrobeItemDetailsIntent);
     }
