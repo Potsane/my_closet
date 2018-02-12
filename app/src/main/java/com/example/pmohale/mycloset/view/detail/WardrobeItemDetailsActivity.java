@@ -76,7 +76,7 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
     }
 
     private void deleteIten(){
-        
+
     }
 
     private void setupBackButton() {
