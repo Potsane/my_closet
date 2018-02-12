@@ -4,10 +4,6 @@ import android.arch.persistence.room.Entity;
 
 import com.example.pmohale.mycloset.entity.internal.PersistableEntity;
 
-/**
- * Created by PMohale on 2018/02/05.
- */
-
 @Entity(tableName = "wardrobe_items")
 public class WardrobeItem extends PersistableEntity {
 

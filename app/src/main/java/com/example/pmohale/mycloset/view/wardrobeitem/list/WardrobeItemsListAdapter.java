@@ -1,4 +1,4 @@
-package com.example.pmohale.mycloset.view.list;
+package com.example.pmohale.mycloset.view.wardrobeitem.list;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -72,7 +72,6 @@ class WardrobeItemsListAdapter extends RecyclerView.Adapter<WardrobeItemsListAda
 
         @Override
         public void onClick(View view) {
-            System.out.println("gets here.....");
             int position = getAdapterPosition();
             long id = wardrobeItems.get(position).getId();
             onItemClickHandler.onItemClick(id);

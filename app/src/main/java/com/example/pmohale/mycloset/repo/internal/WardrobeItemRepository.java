@@ -17,4 +17,6 @@ public interface WardrobeItemRepository {
     void addWardrobeItem(WardrobeItem item);
 
     LiveData<WardrobeItem> getWardrobeItem(long id);
+
+    void deleteWardrobeItem(long id);
 }

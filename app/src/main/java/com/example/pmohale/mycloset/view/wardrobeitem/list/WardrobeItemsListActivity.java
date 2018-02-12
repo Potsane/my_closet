@@ -1,4 +1,4 @@
-package com.example.pmohale.mycloset.view.list;
+package com.example.pmohale.mycloset.view.wardrobeitem.list;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -19,9 +19,8 @@ import android.view.View;
 import com.example.pmohale.mycloset.MainActivity;
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
-import com.example.pmohale.mycloset.view.add.AddWardrobeItemActivity;
-import com.example.pmohale.mycloset.view.detail.WardrobeItemDetailsActivity;
-import com.example.pmohale.mycloset.viewmodel.WardrobeItemViewModel;
+import com.example.pmohale.mycloset.view.wardrobeitem.add.AddWardrobeItemActivity;
+import com.example.pmohale.mycloset.view.wardrobeitem.detail.WardrobeItemDetailsActivity;
 
 import java.util.List;
 
@@ -31,7 +30,8 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
 
     private WardrobeItemsListAdapter wardrobeItemsListAdapter;
 
-    private WardrobeItemViewModel wardrobeItemViewModel;
+    private WardrobeItemsListViewModel wardrobeItemsListViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.list_wardrobe_items, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -72,15 +73,16 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
     }
 
     private void setupViewModels() {
-        wardrobeItemViewModel = ViewModelProviders.of(this).get(WardrobeItemViewModel.class);
+        wardrobeItemsListViewModel = ViewModelProviders.of(this).get(WardrobeItemsListViewModel.class);
 
-        wardrobeItemViewModel.getAllWardrobeItems().observe(this, new Observer<List<WardrobeItem>>() {
+        wardrobeItemsListViewModel.getAllWardrobeItems().observe(this, new Observer<List<WardrobeItem>>() {
             @Override
             public void onChanged(@Nullable List<WardrobeItem> wardrobeItems) {
                 wardrobeItemsListAdapter.setWardrobeItems(wardrobeItems);
             }
         });
     }
+
 
     @Override
     public void onItemClick(long id) {
