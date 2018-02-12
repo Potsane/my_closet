@@ -24,9 +24,8 @@
             android:label="@string/title_activity_wardrobe_item"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.add.AddWardrobeItemActivity" />
-        <activity android:name=".view.detail.WardrobeItemDetailsActivity" />
         <activity
-            android:name=".view.detail.WardrobeItemDetailsActivity2"
+            android:name=".view.detail.WardrobeItemDetailsActivity"
             android:label="@string/title_activity_wardrobe_item_details2"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

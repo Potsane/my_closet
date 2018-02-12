@@ -20,7 +20,7 @@ import com.example.pmohale.mycloset.MainActivity;
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.view.add.AddWardrobeItemActivity;
-import com.example.pmohale.mycloset.view.detail.WardrobeItemDetailsActivity2;
+import com.example.pmohale.mycloset.view.detail.WardrobeItemDetailsActivity;
 import com.example.pmohale.mycloset.viewmodel.WardrobeItemViewModel;
 
 import java.util.List;
@@ -87,7 +87,7 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
 
     @Override
     public void onItemClick(long id) {
-        Intent wardrobeItemDetailsIntent = new Intent(this, WardrobeItemDetailsActivity2.class);
+        Intent wardrobeItemDetailsIntent = new Intent(this, WardrobeItemDetailsActivity.class);
         wardrobeItemDetailsIntent.putExtra("id", id);
         startActivity(wardrobeItemDetailsIntent);
     }
