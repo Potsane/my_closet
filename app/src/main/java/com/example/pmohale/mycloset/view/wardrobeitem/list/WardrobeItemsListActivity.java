@@ -16,7 +16,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.pmohale.mycloset.MainActivity;
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.view.wardrobeitem.add.AddWardrobeItemActivity;

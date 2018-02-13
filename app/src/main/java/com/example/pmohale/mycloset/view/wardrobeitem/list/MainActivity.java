@@ -1,7 +1,10 @@
-package com.example.pmohale.mycloset;
+package com.example.pmohale.mycloset.view.wardrobeitem.list;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,11 +13,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
+import com.example.pmohale.mycloset.R;
+import com.example.pmohale.mycloset.entity.WardrobeItem;
+import com.example.pmohale.mycloset.util.Recommender;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private MainActivityListViewModel mainActivityListViewModel;
+
+    private TextView textViewTopFormalItemReccommendation;
+
+    private TextView textViewBottomFormalItemReccommendation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +36,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onSelectedDialogItem(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +45,29 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        textViewTopFormalItemReccommendation = (TextView) findViewById(R.id.text_view_top_formal_item);
+        textViewBottomFormalItemReccommendation = (TextView) findViewById(R.id.text_view_bottom_formal_item);
+
+        setupViewModels();
+
+    }
+
+    private void setupViewModels() {
+        mainActivityListViewModel = ViewModelProviders.of(this).get(MainActivityListViewModel.class);
+
+        mainActivityListViewModel.getItemsByDressCode("Formal").observe(this, new Observer<List<WardrobeItem>>() {
+            @Override
+            public void onChanged(@Nullable List<WardrobeItem> items) {
+                setFormalItemsRecommendations(items);
+            }
+        });
+    }
+
+    private void setFormalItemsRecommendations(List<WardrobeItem> items) {
+
+        textViewTopFormalItemReccommendation.setText(Recommender.getTopFormalItemReccommendation(items));
+        textViewBottomFormalItemReccommendation.setText(Recommender.getBottomFormalItemReccommendation(items));
     }
 
     @Override
@@ -54,47 +82,28 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_my_closet) {
             startActivity(new Intent(this, WardrobeItemsListActivity.class));
         }
-
-        /*else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

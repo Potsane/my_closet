@@ -19,4 +19,6 @@ public interface WardrobeItemRepository {
     LiveData<WardrobeItem> getWardrobeItem(long id);
 
     void deleteWardrobeItem(long id);
+
+    LiveData<List<WardrobeItem>> getItemsByDressCode(String dressCode);
 }

@@ -5,205 +5,239 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.pmohale.mycloset.MainActivity"
-    tools:layout_editor_absoluteY="81dp"
-    tools:showIn="@layout/app_bar_main">
+    tools:context="com.example.pmohale.mycloset.view.wardrobeitem.list.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
+    <!--tools:showIn="@layout/app_bar_main">-->
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="170dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_initial_condition" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textView2"
-        style="@android:style/TextAppearance.Material.Large"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Johannesburg"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView3"
-        style="@android:style/TextAppearance.Material.Medium"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Partly cloudy"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                app:cardCornerRadius="5dp">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="19 C"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="384dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="?attr/colorButtonNormal"
-        android:text="What to wear today"
-        android:textAlignment="center"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="formal"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="@+id/guideline4"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="40dp" />
+                    <android.support.constraint.Guideline
+                        android:id="@+id/guideline4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="10dp" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="272dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="8dp"
-        android:text="Today's casual wear"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="What to wear today"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/guideline4"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="107dp" />
+                    <TextView
+                        android:id="@+id/text_view_top_formal_item"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/guideline4"
+                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="273dp"
-        android:layout_height="21dp"
-        android:text="Jeans, T-shirt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                    <TextView
+                        android:id="@+id/text_view_bottom_formal_item"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/guideline4"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_top_formal_item" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="277dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="8dp"
-        android:text="Today's formal wear"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                    <Button
+                        android:id="@+id/button2"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Button"
+                        android:textColor="@android:color/holo_blue_light"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_bottom_formal_item" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="276dp"
-        android:layout_height="22dp"
-        android:text="Formal pants, Shirt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
 
-    <Button
-        android:id="@+id/button7"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="84dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:drawableTop="@android:drawable/ic_menu_edit"
-        app:layout_constraintEnd_toStartOf="@+id/textView12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:elevation="5dp"
+                app:cardCornerRadius="5dp">
 
-    <Button
-        android:id="@+id/button8"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="84dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:drawableTop="@android:drawable/ic_menu_edit"
-        app:layout_constraintEnd_toStartOf="@+id/textView10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <Button
-        android:id="@+id/button9"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="85dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:drawableTop="@android:drawable/ic_menu_edit"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="5dp">
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="274dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_dark"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/guideline5"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="269dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="12dp"
-        android:text="Your suitable items"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    <android.support.constraint.Guideline
+                        android:id="@+id/guideline5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="10dp" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="269dp"
-        android:layout_height="22dp"
-        android:text="Formal - 2 found"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/guideline5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="271dp"
-        android:layout_height="22dp"
-        android:text="Casual - 3 found"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/guideline5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/guideline5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                    <Button
+                        android:id="@+id/button3"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Button"
+                        android:textColor="@android:color/holo_blue_light"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:elevation="5dp"
+                app:cardCornerRadius="5dp" >
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/guideline7"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/guideline7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="10dp" />
+
+                    <TextView
+                        android:id="@+id/textView23"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/guideline7"
+                        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/guideline7"
+                        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="325dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/guideline7"
+                        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+                    <Button
+                        android:id="@+id/button5"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Button"
+                        android:textColor="@android:color/holo_blue_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -41,4 +41,9 @@ public class WardrobeItemRepositoryImpl implements WardrobeItemRepository {
     public void deleteWardrobeItem(long id) {
         new DeleteWardrobeItemAsyncTask(wardrobeItemDao, id).execute();
     }
+
+    @Override
+    public LiveData<List<WardrobeItem>> getItemsByDressCode(String dressCode) {
+        return wardrobeItemDao.getItemsByDressCode(dressCode);
+    }
 }

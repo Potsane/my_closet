@@ -19,7 +19,7 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
 
     private static final String[] COLORS = {"Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
 
-    private static final String[] ITEM_TYPES = {"T-Shirt", "Pants", "Top", "Jacket", "Coat", "Sweater", "Jeans"};
+    private static final String[] ITEM_TYPES = {"T-Shirt", "Pants", "Top", "Jacket", "Coat", "Sweater", "Jeans", " Shirt", "Shorts"};
 
     private static final String[] WEATHER_CONDITIONS = {"Sunny", "Rainy", "Windy", "Cloudy"};
 
