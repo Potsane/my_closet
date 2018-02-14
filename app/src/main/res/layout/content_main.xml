@@ -77,17 +77,32 @@
                         app:layout_constraintTop_toBottomOf="@+id/text_view_top_formal_item" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/button_select_formal_outfit"
                         style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:layout_marginTop="8dp"
-                        android:text="Button"
+                        android:text="select today outfit"
                         android:textColor="@android:color/holo_blue_light"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/text_view_bottom_formal_item" />
+
+                    <Button
+                        android:id="@+id/button_view_more_formal_items"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:text="veiw more items"
+                        android:textColor="?android:attr/colorActivatedHighlight"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/button_select_formal_outfit"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_bottom_formal_item"
+                        app:layout_constraintVertical_bias="0.0" />
 
                 </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
@@ -110,7 +125,7 @@
                         android:layout_width="325dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:text="casual"
                         app:layout_constraintStart_toStartOf="@+id/guideline5"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -126,14 +141,14 @@
                         android:layout_width="325dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:text="What to wear today"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/guideline5"
                         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
                     <TextView
-                        android:id="@+id/textView20"
+                        android:id="@+id/text_view_top_casual_item"
                         android:layout_width="325dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="4dp"
@@ -143,27 +158,42 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
                     <TextView
-                        android:id="@+id/textView21"
+                        android:id="@+id/text_view_bottom_casual_item"
                         android:layout_width="325dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="8dp"
                         android:text="TextView"
                         app:layout_constraintStart_toStartOf="@+id/guideline5"
-                        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_top_casual_item" />
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/button_view_more_casual_items"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:text="veiw more items"
+                        android:textColor="?android:attr/colorActivatedHighlight"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/button_select_casual_outfit"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_bottom_casual_item"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <Button
+                        android:id="@+id/button_select_casual_outfit"
                         style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:layout_marginTop="8dp"
-                        android:text="Button"
+                        android:text="select today outfit"
                         android:textColor="@android:color/holo_blue_light"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_bottom_casual_item" />
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.v7.widget.CardView>
@@ -184,7 +214,7 @@
                         android:layout_width="325dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:text="outfits"
                         app:layout_constraintStart_toStartOf="@+id/guideline7"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -200,7 +230,7 @@
                         android:layout_width="325dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
+                        android:text="Your previous outfits"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/guideline7"
@@ -225,13 +255,15 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
                     <Button
-                        android:id="@+id/button5"
+                        android:id="@+id/button_view_more_outfits"
                         style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Button"
-                        android:textColor="@android:color/holo_blue_light"
+                        android:text="view more items"
+                        android:textColor="?android:attr/colorActivatedHighlight"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView25" />
                 </android.support.constraint.ConstraintLayout>

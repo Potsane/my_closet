@@ -15,7 +15,7 @@ public class AddWardrobeItemAsyncTask extends AsyncTask<Void, Void, Void>{
 
     private WardrobeItem wardrobeItem;
 
-    public AddWardrobeItemAsyncTask(WardrobeItemDao wardrobeItemDao, WardrobeItem wardrobeItem) {
+    public  AddWardrobeItemAsyncTask(WardrobeItemDao wardrobeItemDao, WardrobeItem wardrobeItem) {
         this.wardrobeItemDao = wardrobeItemDao;
         this.wardrobeItem = wardrobeItem;
     }
@@ -25,4 +25,5 @@ public class AddWardrobeItemAsyncTask extends AsyncTask<Void, Void, Void>{
         wardrobeItemDao.addItem(wardrobeItem);
         return null;
     }
+
 }

@@ -100,5 +100,42 @@
     <string name="title_activity_wardrobe_item_details2">WardrobeItemDetailsActivity2</string>
     <string name="default_formal_top_item">White Shirt</string>
 
+    <string-array name ="colors_array">
+        <item>Select a color</item>
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Indigo</item>
+        <item>Violet</item>
+    </string-array>
 
+    <string-array name = "item_types_array">
+        <item>Select item type</item>
+        <item>T-Shirt</item>
+        <item>Pants</item>
+        <item>Top</item>
+        <item>Jacket</item>
+        <item>Coat</item>
+        <item>Sweater</item>
+        <item>Jeans</item>
+        <item>Shirt</item>
+        <item>Shorts</item>
+    </string-array>
+
+    <string-array name="weather_conditions_array">
+        <item>Select weather</item>
+        <item>Sunny</item>
+        <item>Rainy</item>
+        <item>Windy</item>
+        <item>Cloudy</item>
+    </string-array>
+
+    <string-array name="dress_code_array">
+        <item>Selct dress code</item>
+        <item>Casual</item>
+        <item>Smart casual</item>
+        <item>Formal</item>
+    </string-array>
 </resources>

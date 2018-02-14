@@ -8,42 +8,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
-import com.example.pmohale.mycloset.view.wardrobeitem.add.dialog.ItemTypePickerFragment;
 
-public class AddWardrobeItemActivity extends AppCompatActivity implements View.OnFocusChangeListener, ItemTypePickerFragment.ListDialogListener {
+public class AddWardrobeItemActivity extends AppCompatActivity {
 
-    private static final String[] COLORS = {"Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
+    private Spinner spinnerItemType;
 
-    private static final String[] ITEM_TYPES = {"T-Shirt", "Pants", "Top", "Jacket", "Coat", "Sweater", "Jeans", " Shirt", "Shorts"};
+    private Spinner spinnerItemColor;
 
-    private static final String[] WEATHER_CONDITIONS = {"Sunny", "Rainy", "Windy", "Cloudy"};
+    private Spinner spinnerSuitableWeather;
 
-    private static final String[] DRESS_CODES = {"Casual", "Smart casual", "Formal"};
-
-    private static final String ITEMS_DIALOG_TITTLE = "Pick item type";
-
-    private static final String COLOR_DIALOG_TITTLE = "Pick item color";
-
-    private static final String WEATHER_DIALOG_TITTLE = "Pick suitable weather condition";
-
-    private static final String DRESS_CODE_DIALOG_TITTLE = "Pick suitable dress code";
-
-    private EditText editTextItemType;
+    private Spinner spinnerDressCode;
 
     private EditText editTextDescription;
-
-    private EditText editTextColor;
-
-    private EditText editTextDressCode;
-
-    private EditText editTextWeatherCondition;
-
-    private View focusedView;
 
     private AddWardrobeItemViewModel addWardrobeItemViewModel;
 
@@ -52,25 +34,39 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_wardrobe_item);
 
-        editTextItemType = findViewById(R.id.edit_text_item_type);
-        editTextItemType.setOnFocusChangeListener(this);
-
-        editTextDescription = findViewById(R.id.edit_text_dscription);
-        editTextDescription.setOnFocusChangeListener(this);
-
-        editTextColor = findViewById(R.id.edit_text_color);
-        editTextColor.setOnFocusChangeListener(this);
-
-        editTextDressCode = findViewById(R.id.edit_text_dress_code);
-        editTextDressCode.setOnFocusChangeListener(this);
-
-        editTextWeatherCondition = findViewById(R.id.edit_text_weather_condition);
-        editTextWeatherCondition.setOnFocusChangeListener(this);
+        setupSpinners();
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         addWardrobeItemViewModel = ViewModelProviders.of(this).get(AddWardrobeItemViewModel.class);
+    }
+
+    private void setupSpinners() {
+       spinnerItemType = (Spinner) findViewById(R.id.spinner7);
+     /*   spinnerItemColor = (Spinner) findViewById(R.id.spinner_item_color);
+        spinnerSuitableWeather = (Spinner) findViewById(R.id.spinner_weather);
+        spinnerDressCode = (Spinner) findViewById(R.id.spinner_weather);*/
+
+        ArrayAdapter itemsColorAdapter = ArrayAdapter.createFromResource(this,
+                R.array.colors_array, android.R.layout.simple_spinner_item);
+        itemsColorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerItemType.setAdapter(itemsColorAdapter);
+/*
+        ArrayAdapter itemTypesAdapter = ArrayAdapter.createFromResource(this,
+                R.array.item_types_array, android.R.layout.simple_spinner_item);
+        itemTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerItemType.setAdapter(itemTypesAdapter);
+
+        ArrayAdapter suitableWeatherConditionsAdapotor = ArrayAdapter.createFromResource(this,
+                R.array.weather_conditions_array, android.R.layout.simple_spinner_item);
+        suitableWeatherConditionsAdapotor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSuitableWeather.setAdapter(suitableWeatherConditionsAdapotor);
+
+        ArrayAdapter dressCodeAdapter = ArrayAdapter.createFromResource(this,
+                R.array.dress_code_array, android.R.layout.simple_spinner_item);
+        dressCodeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDressCode.setAdapter(dressCodeAdapter);*/
     }
 
     @Override
@@ -95,65 +91,10 @@ public class AddWardrobeItemActivity extends AppCompatActivity implements View.O
         }
     }
 
-    //TODO: this is badly wtitten must refactor into a utility class
-    @Override
-    public void onFocusChange(View view, boolean hasFocus) {
-
-        setFocusedView(view);
-
-        if (view.getId() == R.id.edit_text_item_type && view.hasFocus()) {
-
-            ItemTypePickerFragment pickerFragment = new ItemTypePickerFragment();
-            Bundle arguements = new Bundle();
-            arguements.putStringArray("list", ITEM_TYPES);
-            arguements.putString("tittle", ITEMS_DIALOG_TITTLE);
-            pickerFragment.setArguments(arguements);
-            pickerFragment.show(getFragmentManager(), "Items type");
-        }
-        if (view.getId() == R.id.edit_text_color && view.hasFocus()) {
-
-            ItemTypePickerFragment pickerFragment = new ItemTypePickerFragment();
-            Bundle arguements = new Bundle();
-            arguements.putStringArray("list", COLORS);
-            arguements.putString("tittle", COLOR_DIALOG_TITTLE);
-            pickerFragment.setArguments(arguements);
-            pickerFragment.show(getFragmentManager(), "Items type");
-        }
-        if (view.getId() == R.id.edit_text_weather_condition && view.hasFocus()) {
-
-            ItemTypePickerFragment pickerFragment = new ItemTypePickerFragment();
-            Bundle arguements = new Bundle();
-            arguements.putStringArray("list", WEATHER_CONDITIONS);
-            arguements.putString("tittle", WEATHER_DIALOG_TITTLE);
-            pickerFragment.setArguments(arguements);
-            pickerFragment.show(getFragmentManager(), "Items type");
-        }
-        if (view.getId() == R.id.edit_text_dress_code && view.hasFocus()) {
-
-            ItemTypePickerFragment pickerFragment = new ItemTypePickerFragment();
-            Bundle arguements = new Bundle();
-            arguements.putStringArray("list", DRESS_CODES);
-            arguements.putString("tittle", DRESS_CODE_DIALOG_TITTLE);
-            pickerFragment.setArguments(arguements);
-            pickerFragment.show(getFragmentManager(), "Items type");
-        }
-    }
-
-    @Override
-    public void onSelectedDialogItem(String value) {
-        EditText currentFocusedEditeText = (EditText) getFocusedView();
-        currentFocusedEditeText.setText(value);
-    }
-
-    private View getFocusedView() {
-        return focusedView;
-    }
-
-    private void setFocusedView(View focusedView) {
-        this.focusedView = focusedView;
-    }
-
     private void addWardrobeItem() {
-        addWardrobeItemViewModel.addWardrobeItem(editTextItemType.getText().toString(), editTextDescription.getText().toString(), editTextColor.getText().toString(), editTextDressCode.getText().toString(), editTextWeatherCondition.getText().toString());
+       /* addWardrobeItemViewModel.addWardrobeItem(editTextItemType.getText().toString(), editTextDescription.getText().toString(), editTextColor.getText().toString(), editTextDressCode.getText().toString(), editTextWeatherCondition.getText().toString());
+        Toast.makeText(this, "Succssfully added item", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(AddWardrobeItemActivity.this, WardrobeItemsListActivity.class);
+        startActivity(intent);*/
     }
 }

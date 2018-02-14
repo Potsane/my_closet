@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.pmohale.mycloset.R;
@@ -30,6 +32,14 @@ public class MainActivity extends AppCompatActivity
 
     private TextView textViewBottomFormalItemReccommendation;
 
+    private TextView textViewTopCasualItemReccommendation;
+
+    private TextView textViewBottomCasualItemReccommendation;
+
+    private Button buttonViewMoreFormalReccommendations;
+
+    private int itemCursor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +56,26 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        textViewTopFormalItemReccommendation = (TextView) findViewById(R.id.text_view_top_formal_item);
-        textViewBottomFormalItemReccommendation = (TextView) findViewById(R.id.text_view_bottom_formal_item);
+        setupViews();
 
         setupViewModels();
 
+    }
+
+    private void setupViews() {
+
+        textViewTopFormalItemReccommendation = (TextView) findViewById(R.id.text_view_top_formal_item);
+        textViewBottomFormalItemReccommendation = (TextView) findViewById(R.id.text_view_bottom_formal_item);
+        textViewTopCasualItemReccommendation = (TextView) findViewById(R.id.text_view_top_casual_item);
+        textViewBottomCasualItemReccommendation = (TextView) findViewById(R.id.text_view_bottom_casual_item);
+
+
+        buttonViewMoreFormalReccommendations = (Button) findViewById(R.id.button_view_more_formal_items);
+        buttonViewMoreFormalReccommendations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
     }
 
     private void setupViewModels() {
@@ -66,8 +91,11 @@ public class MainActivity extends AppCompatActivity
 
     private void setFormalItemsRecommendations(List<WardrobeItem> items) {
 
-        textViewTopFormalItemReccommendation.setText(Recommender.getTopFormalItemReccommendation(items));
-        textViewBottomFormalItemReccommendation.setText(Recommender.getBottomFormalItemReccommendation(items));
+        itemCursor = 1;
+        textViewTopFormalItemReccommendation.setText(Recommender.getTopFormalItemReccommendation(items, itemCursor));
+        textViewBottomFormalItemReccommendation.setText(Recommender.getBottomFormalItemReccommendation(items, itemCursor));
+        textViewTopCasualItemReccommendation.setText(Recommender.getTopCasualItemReccommendation(items, itemCursor));
+        textViewBottomCasualItemReccommendation.setText(Recommender.getBottomCasualItemReccommendation(items, itemCursor));
     }
 
     @Override
