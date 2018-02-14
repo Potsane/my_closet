@@ -100,7 +100,7 @@
     <string name="title_activity_wardrobe_item_details2">WardrobeItemDetailsActivity2</string>
     <string name="default_formal_top_item">White Shirt</string>
 
-    <string-array name ="colors_array">
+    <string-array name="colors_array">
         <item>Select a color</item>
         <item>Red</item>
         <item>Orange</item>
@@ -111,7 +111,7 @@
         <item>Violet</item>
     </string-array>
 
-    <string-array name = "item_types_array">
+    <string-array name="item_types_array">
         <item>Select item type</item>
         <item>T-Shirt</item>
         <item>Pants</item>

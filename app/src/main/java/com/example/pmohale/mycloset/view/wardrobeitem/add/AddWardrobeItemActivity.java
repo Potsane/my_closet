@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
@@ -43,16 +44,17 @@ public class AddWardrobeItemActivity extends AppCompatActivity {
     }
 
     private void setupSpinners() {
-       spinnerItemType = (Spinner) findViewById(R.id.spinner7);
-     /*   spinnerItemColor = (Spinner) findViewById(R.id.spinner_item_color);
-        spinnerSuitableWeather = (Spinner) findViewById(R.id.spinner_weather);
-        spinnerDressCode = (Spinner) findViewById(R.id.spinner_weather);*/
+        spinnerItemType = (Spinner) findViewById(R.id.spinner_item_type);
+        spinnerItemColor = (Spinner) findViewById(R.id.spinner_item_color);
+        spinnerSuitableWeather = (Spinner) findViewById(R.id.spinner_weather_condition);
+        spinnerDressCode = (Spinner) findViewById(R.id.spinner_dress_code);
+        editTextDescription = (EditText) findViewById(R.id.edit_text_dscription);
 
         ArrayAdapter itemsColorAdapter = ArrayAdapter.createFromResource(this,
                 R.array.colors_array, android.R.layout.simple_spinner_item);
         itemsColorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerItemType.setAdapter(itemsColorAdapter);
-/*
+        spinnerItemColor.setAdapter(itemsColorAdapter);
+
         ArrayAdapter itemTypesAdapter = ArrayAdapter.createFromResource(this,
                 R.array.item_types_array, android.R.layout.simple_spinner_item);
         itemTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -66,7 +68,7 @@ public class AddWardrobeItemActivity extends AppCompatActivity {
         ArrayAdapter dressCodeAdapter = ArrayAdapter.createFromResource(this,
                 R.array.dress_code_array, android.R.layout.simple_spinner_item);
         dressCodeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDressCode.setAdapter(dressCodeAdapter);*/
+        spinnerDressCode.setAdapter(dressCodeAdapter);
     }
 
     @Override
@@ -92,9 +94,9 @@ public class AddWardrobeItemActivity extends AppCompatActivity {
     }
 
     private void addWardrobeItem() {
-       /* addWardrobeItemViewModel.addWardrobeItem(editTextItemType.getText().toString(), editTextDescription.getText().toString(), editTextColor.getText().toString(), editTextDressCode.getText().toString(), editTextWeatherCondition.getText().toString());
+        addWardrobeItemViewModel.addWardrobeItem(spinnerItemType.getSelectedItem().toString(), editTextDescription.getText().toString(), spinnerItemColor.getSelectedItem().toString(), spinnerDressCode.getSelectedItem().toString(), spinnerSuitableWeather.getSelectedItem().toString());
         Toast.makeText(this, "Succssfully added item", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(AddWardrobeItemActivity.this, WardrobeItemsListActivity.class);
-        startActivity(intent);*/
+        startActivity(intent);
     }
 }

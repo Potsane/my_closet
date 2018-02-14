@@ -24,17 +24,143 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/text_view_header"
+                android:layout_width="349dp"
+                android:layout_height="55dp"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:text="Add new item"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@android:color/white"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dummy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item type"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                >
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="Item type"
+                    android:textSize="20sp" />
 
+                <Spinner
+                    android:id="@+id/spinner_item_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="2dp"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/edit_text_dscription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textSize="20sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="Item color"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_item_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="Suitable weather condition"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_weather_condition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="Suitable dress code"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_dress_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>

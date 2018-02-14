@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.util.Recommender;
+import com.example.pmohale.mycloset.view.outfit.add.AddOutfitActivity;
 
 import java.util.List;
 
@@ -131,6 +132,10 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_my_closet) {
             startActivity(new Intent(this, WardrobeItemsListActivity.class));
+        }
+
+        if (id == R.id.nav_what_to_wear) {
+            startActivity(new Intent(this, AddOutfitActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
