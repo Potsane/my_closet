@@ -11,7 +11,7 @@ import com.example.pmohale.mycloset.R;
 
 public class AddOutfitActivity extends AppCompatActivity {
 
-    private static final int NUMBER_OF_SLIDES = 3;
+    private static final int NUMBER_OF_SLIDES = 4;
 
     private ViewPager sliderViewPager;
 

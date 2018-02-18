@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.pmohale.mycloset.view.outfit.add.fragment.FirstFragment;
+import com.example.pmohale.mycloset.view.outfit.add.fragment.FourthFragment;
 import com.example.pmohale.mycloset.view.outfit.add.fragment.SecondFrament;
 import com.example.pmohale.mycloset.view.outfit.add.fragment.ThirdFragment;
 
@@ -33,6 +34,9 @@ public class SliderAdapter extends FragmentStatePagerAdapter {
             case 2:
                 ThirdFragment slide3 = new ThirdFragment();
                 return slide3;
+            case 3:
+                FourthFragment slide4 = new FourthFragment();
+                return slide4;
             default:
                 return null;
         }

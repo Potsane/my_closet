@@ -16,6 +16,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -38,6 +41,7 @@ dependencies {
     compile "android.arch.lifecycle:extensions:1.0.0-alpha9"
     annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha9"
 
-    compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    //mockito
+    dependencies { testCompile 'org.mockito:mockito-core:2.7.22' }
 
 }
