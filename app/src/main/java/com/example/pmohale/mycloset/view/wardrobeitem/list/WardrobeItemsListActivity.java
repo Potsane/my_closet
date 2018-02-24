@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,22 +19,35 @@ import android.view.View;
 
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
+import com.example.pmohale.mycloset.injection.ClosetViewModelFactory;
 import com.example.pmohale.mycloset.view.wardrobeitem.add.AddWardrobeItemActivity;
 import com.example.pmohale.mycloset.view.wardrobeitem.detail.WardrobeItemDetailsActivity;
 
 import java.util.List;
 
-public class WardrobeItemsListActivity extends AppCompatActivity implements WardrobeItemsListAdapter.WardrobeItemsListAdapterOnItemClickHandler {
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
+
+public class WardrobeItemsListActivity extends AppCompatActivity implements HasSupportFragmentInjector, WardrobeItemsListAdapter.WardrobeItemsListAdapterOnItemClickHandler {
 
     private RecyclerView wardrobeItemsRecyclerView;
 
     private WardrobeItemsListAdapter wardrobeItemsListAdapter;
 
-    private WardrobeItemsListViewModel wardrobeItemsListViewModel;
+    @Inject
+    ClosetViewModelFactory closetViewModelFactory;
 
+    WardrobeItemsListViewModel wardrobeItemsListViewModel;
+
+    @Inject
+    DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wardrobe_item);
 
@@ -72,7 +86,7 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
     }
 
     private void setupViewModels() {
-        wardrobeItemsListViewModel = ViewModelProviders.of(this).get(WardrobeItemsListViewModel.class);
+        wardrobeItemsListViewModel = ViewModelProviders.of(this, closetViewModelFactory).get(WardrobeItemsListViewModel.class);
 
         wardrobeItemsListViewModel.getAllWardrobeItems().observe(this, new Observer<List<WardrobeItem>>() {
             @Override
@@ -101,5 +115,10 @@ public class WardrobeItemsListActivity extends AppCompatActivity implements Ward
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public DispatchingAndroidInjector<Fragment> supportFragmentInjector() {
+        return dispatchingAndroidInjector;
     }
 }

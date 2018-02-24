@@ -1,10 +1,8 @@
 package com.example.pmohale.mycloset.database;
 
 import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
-import android.content.Context;
 
 import com.example.pmohale.mycloset.database.dao.OutfitDao;
 import com.example.pmohale.mycloset.database.dao.WardrobeItemDao;
@@ -19,6 +17,7 @@ import com.example.pmohale.mycloset.util.DateConverter;
 @Database(entities = {Outfit.class, WardrobeItem.class}, version = 5)
 @TypeConverters(DateConverter.class)
 public abstract class ClosetDatabase extends RoomDatabase {
+/*
 
     private static final String DATABASE_NAME = "closet";
 
@@ -35,6 +34,7 @@ public abstract class ClosetDatabase extends RoomDatabase {
         }
         return instance;
     }
+*/
 
     public abstract OutfitDao outfitDao();
 

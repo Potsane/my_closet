@@ -1,4 +1,13 @@
 apply plugin: 'com.android.application'
+project.ext {
+    supportLibraryVersion = "26.1.0"
+    daggerVersion = "2.13"
+    butterKnifeVersion = "8.8.1"
+    rxJavaVersion = "2.1.0"
+    rxAndroidVersion = "2.0.1"
+    timberVersion = "4.6.0"
+    lifecycleVersion = "1.0.0"
+}
 
 android {
     compileSdkVersion 26
@@ -18,6 +27,10 @@ android {
     }
     testOptions {
         unitTests.returnDefaultValues = true
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -43,5 +56,21 @@ dependencies {
 
     //mockito
     dependencies { testCompile 'org.mockito:mockito-core:2.7.22' }
+
+    // Dagger core
+    annotationProcessor "com.google.dagger:dagger-compiler:$project.daggerVersion"
+    compile "com.google.dagger:dagger:$project.daggerVersion"
+
+    // Dagger Android
+    annotationProcessor "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    compile "com.google.dagger:dagger-android-support:$project.daggerVersion"
+    // if you are not using support library, include this instead
+    compile "com.google.dagger:dagger-android:$project.daggerVersion"
+
+    //timber and 310
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.5'
+    compile 'com.jakewharton.timber:timber:4.6.0'
+
+
 
 }

@@ -1,30 +1,34 @@
 package com.example.pmohale.mycloset.view.wardrobeitem.list;
 
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.ViewModel;
 
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.repo.internal.WardrobeItemRepository;
-import com.example.pmohale.mycloset.util.InjectorUtils;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * Created by PMohale on 2018/02/12.
  */
 
-public class WardrobeItemsListViewModel extends AndroidViewModel {
+public class WardrobeItemsListViewModel extends ViewModel {
 
-    private WardrobeItemRepository itemRepository;
+    @Inject
+    WardrobeItemRepository itemRepository;
 
-
-    public WardrobeItemsListViewModel(Application application) {
-        super(application);
-        itemRepository = InjectorUtils.getWardrobeItemRepository(application);
+    @Inject
+    public WardrobeItemsListViewModel() {
     }
 
-    public LiveData<List<WardrobeItem>> getAllWardrobeItems(){
+   /* public WardrobeItemsListViewModel(Application application) {
+        super(application);
+        itemRepository = InjectorUtils.getWardrobeItemRepository(application);
+    }*/
+
+    public LiveData<List<WardrobeItem>> getAllWardrobeItems() {
         return itemRepository.getAllWardrobeItems();
     }
 }

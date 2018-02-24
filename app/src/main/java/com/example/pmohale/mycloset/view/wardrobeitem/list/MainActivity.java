@@ -19,13 +19,21 @@ import android.widget.TextView;
 
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
+import com.example.pmohale.mycloset.injection.ClosetViewModelFactory;
 import com.example.pmohale.mycloset.util.Recommender;
 import com.example.pmohale.mycloset.view.outfit.add.AddOutfitActivity;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    @Inject
+    ClosetViewModelFactory closetViewModelFactory;
 
     private MainActivityListViewModel mainActivityListViewModel;
 
@@ -43,6 +51,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -80,7 +89,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setupViewModels() {
-        mainActivityListViewModel = ViewModelProviders.of(this).get(MainActivityListViewModel.class);
+        mainActivityListViewModel = ViewModelProviders.of(this, closetViewModelFactory).get(MainActivityListViewModel.class);
 
         mainActivityListViewModel.getItemsByDressCode("Formal").observe(this, new Observer<List<WardrobeItem>>() {
             @Override

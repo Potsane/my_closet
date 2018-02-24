@@ -2,9 +2,6 @@ package com.example.pmohale.mycloset.util;
 
 import android.content.Context;
 
-import com.example.pmohale.mycloset.database.ClosetDatabase;
-import com.example.pmohale.mycloset.repo.OutfitRepositoryImpl;
-import com.example.pmohale.mycloset.repo.WardrobeItemRepositoryImpl;
 import com.example.pmohale.mycloset.repo.internal.OutfitRepository;
 import com.example.pmohale.mycloset.repo.internal.WardrobeItemRepository;
 
@@ -23,18 +20,17 @@ public class InjectorUtils {
         if(outfitRepository == null){
             synchronized (OutfitRepository.class){
                 if(outfitRepository == null){
-                    outfitRepository = new OutfitRepositoryImpl(ClosetDatabase.getInstance(context).outfitDao());
+                    //outfitRepository = new OutfitRepositoryImpl(ClosetDatabase.getInstance(context).outfitDao());
                 }
             }
         }
         return outfitRepository;
     }
-
     public static WardrobeItemRepository getWardrobeItemRepository(final Context context) {
         if(wardrobeItemRepository == null){
             synchronized (WardrobeItemRepository.class){
                 if(wardrobeItemRepository == null){
-                    wardrobeItemRepository = new WardrobeItemRepositoryImpl(ClosetDatabase.getInstance(context).wardrobeItemDao());
+                    //wardrobeItemRepository = new WardrobeItemRepositoryImpl(ClosetDatabase.getInstance(context).wardrobeItemDao());
                 }
             }
         }

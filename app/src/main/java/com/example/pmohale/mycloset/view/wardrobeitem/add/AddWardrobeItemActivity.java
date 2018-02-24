@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
 
-public class AddWardrobeItemActivity extends AppCompatActivity {
+public class AddWardrobeItemActivity extends AppCompatActivity  {
 
     private Spinner spinnerItemType;
 
@@ -29,6 +29,7 @@ public class AddWardrobeItemActivity extends AppCompatActivity {
     private EditText editTextDescription;
 
     private AddWardrobeItemViewModel addWardrobeItemViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,4 +100,5 @@ public class AddWardrobeItemActivity extends AppCompatActivity {
         Intent intent = new Intent(AddWardrobeItemActivity.this, WardrobeItemsListActivity.class);
         startActivity(intent);
     }
+
 }

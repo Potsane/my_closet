@@ -10,13 +10,16 @@ import com.example.pmohale.mycloset.task.wardrobeitem.DeleteWardrobeItemAsyncTas
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by PMohale on 2018/02/07.
  */
 
 public class WardrobeItemRepositoryImpl implements WardrobeItemRepository {
 
-    private WardrobeItemDao wardrobeItemDao;
+    @Inject
+    WardrobeItemDao wardrobeItemDao;
 
     public WardrobeItemRepositoryImpl(WardrobeItemDao wardrobeItemDao) {
         this.wardrobeItemDao = wardrobeItemDao;
