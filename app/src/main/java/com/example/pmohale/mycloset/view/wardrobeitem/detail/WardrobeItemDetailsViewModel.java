@@ -14,19 +14,11 @@ import javax.inject.Inject;
 
 public class WardrobeItemDetailsViewModel extends ViewModel {
 
-    private WardrobeItemRepository itemRepository;
+    @Inject WardrobeItemRepository itemRepository;
 
     @Inject
     public WardrobeItemDetailsViewModel() {
     }
-
-    /*
-
-    public WardrobeItemDetailsViewModel(Application application) {
-        super(application);
-        itemRepository = InjectorUtils.getWardrobeItemRepository(application);
-    }
-*/
 
     public LiveData<WardrobeItem> getWardrobeItem(long id) {
         return itemRepository.getWardrobeItem(id);

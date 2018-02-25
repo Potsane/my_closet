@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -73,7 +74,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setupViews() {
-
         textViewTopFormalItemReccommendation = (TextView) findViewById(R.id.text_view_top_formal_item);
         textViewBottomFormalItemReccommendation = (TextView) findViewById(R.id.text_view_bottom_formal_item);
         textViewTopCasualItemReccommendation = (TextView) findViewById(R.id.text_view_top_casual_item);

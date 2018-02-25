@@ -9,18 +9,20 @@ import com.example.pmohale.mycloset.task.outfit.AddOutfitAsyncTask;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by PMohale on 2018/02/06.
  */
 
-public class OutfitRepositoryImpl implements OutfitRepository{
+public class OutfitRepositoryImpl implements OutfitRepository {
 
-    private OutfitDao outfitDao;
+    @Inject
+    OutfitDao outfitDao;
 
     public OutfitRepositoryImpl(OutfitDao outfitDao) {
         this.outfitDao = outfitDao;
     }
-
 
     @Override
     public LiveData<List<Outfit>> getAllOutfits() {

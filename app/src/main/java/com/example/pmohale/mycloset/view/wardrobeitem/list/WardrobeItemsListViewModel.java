@@ -23,11 +23,6 @@ public class WardrobeItemsListViewModel extends ViewModel {
     public WardrobeItemsListViewModel() {
     }
 
-   /* public WardrobeItemsListViewModel(Application application) {
-        super(application);
-        itemRepository = InjectorUtils.getWardrobeItemRepository(application);
-    }*/
-
     public LiveData<List<WardrobeItem>> getAllWardrobeItems() {
         return itemRepository.getAllWardrobeItems();
     }

@@ -14,9 +14,17 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.pmohale.mycloset.R;
+import com.example.pmohale.mycloset.injection.ClosetViewModelFactory;
 import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
 
-public class AddWardrobeItemActivity extends AppCompatActivity  {
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+
+public class AddWardrobeItemActivity extends AppCompatActivity {
+
+    @Inject
+    ClosetViewModelFactory closetViewModelFactory;
 
     private Spinner spinnerItemType;
 
@@ -33,6 +41,7 @@ public class AddWardrobeItemActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_wardrobe_item);
 
@@ -41,7 +50,7 @@ public class AddWardrobeItemActivity extends AppCompatActivity  {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        addWardrobeItemViewModel = ViewModelProviders.of(this).get(AddWardrobeItemViewModel.class);
+        addWardrobeItemViewModel = ViewModelProviders.of(this, closetViewModelFactory).get(AddWardrobeItemViewModel.class);
     }
 
     private void setupSpinners() {

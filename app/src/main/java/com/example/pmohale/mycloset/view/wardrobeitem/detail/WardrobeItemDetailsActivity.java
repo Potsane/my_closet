@@ -17,9 +17,17 @@ import android.widget.TextView;
 
 import com.example.pmohale.mycloset.R;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
+import com.example.pmohale.mycloset.injection.ClosetViewModelFactory;
 import com.example.pmohale.mycloset.view.wardrobeitem.list.WardrobeItemsListActivity;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+
 public class WardrobeItemDetailsActivity extends AppCompatActivity {
+
+    @Inject
+    ClosetViewModelFactory closetViewModelFactory;
 
     private WardrobeItemDetailsViewModel wardrobeItemDetailsViewModel;
 
@@ -38,6 +46,7 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wardrobe_item_details2);
 
@@ -49,7 +58,6 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
         textViewSuitableWeatherConndition = (TextView) findViewById(R.id.text_view_suitable_weather);
         textViewSuitableDressCode = (TextView) findViewById(R.id.text_view_dress_code);
 
-
         setupToolBar();
         setupBackButton();
         setupButtons();
@@ -57,7 +65,7 @@ public class WardrobeItemDetailsActivity extends AppCompatActivity {
     }
 
     private void setupViewModels(long id) {
-        wardrobeItemDetailsViewModel = ViewModelProviders.of(this).get(WardrobeItemDetailsViewModel.class);
+        wardrobeItemDetailsViewModel = ViewModelProviders.of(this, closetViewModelFactory).get(WardrobeItemDetailsViewModel.class);
 
         wardrobeItemDetailsViewModel.getWardrobeItem(id).observe(this, new Observer<WardrobeItem>() {
             @Override

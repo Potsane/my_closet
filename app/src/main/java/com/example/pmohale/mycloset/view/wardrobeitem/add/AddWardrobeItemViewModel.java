@@ -20,12 +20,6 @@ public class AddWardrobeItemViewModel extends ViewModel {
     public AddWardrobeItemViewModel() {
     }
 
-
-   /* public AddWardrobeItemViewModel(Application application) {
-        super(application);
-        //itemRepository = InjectorUtils.getWardrobeItemRepository(application);
-    }
-*/
     public void addWardrobeItem(String type, String description, String color, String suitableDressCode, String suitableWeatherCondition) {
         WardrobeItem item = new WardrobeItem(description, type, color, suitableDressCode, suitableWeatherCondition);
         itemRepository.addWardrobeItem(item);

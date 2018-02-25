@@ -17,24 +17,6 @@ import com.example.pmohale.mycloset.util.DateConverter;
 @Database(entities = {Outfit.class, WardrobeItem.class}, version = 5)
 @TypeConverters(DateConverter.class)
 public abstract class ClosetDatabase extends RoomDatabase {
-/*
-
-    private static final String DATABASE_NAME = "closet";
-
-    private static final Object LOCK = new Object();
-
-    private static ClosetDatabase instance;
-
-    //alt -  can make the method synchronized ie public static synchronized
-    public synchronized static ClosetDatabase getInstance(Context context) {
-        if (instance == null) {
-            synchronized (LOCK) {
-                instance = Room.databaseBuilder(context.getApplicationContext(), ClosetDatabase.class, ClosetDatabase.DATABASE_NAME).build();
-            }
-        }
-        return instance;
-    }
-*/
 
     public abstract OutfitDao outfitDao();
 

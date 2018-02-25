@@ -23,12 +23,6 @@ public class MainActivityListViewModel extends ViewModel {
     public MainActivityListViewModel() {
     }
 
-    /*
-        public MainActivityListViewModel(Application application) {
-            super(application);
-            //itemRepository = InjectorUtils.getWardrobeItemRepository(application);
-        }
-    */
     public LiveData<List<WardrobeItem>> getItemsByDressCode(String dressCode) {
         return itemRepository.getItemsByDressCode(dressCode);
     }
