@@ -26,7 +26,7 @@ public class App extends Application implements HasActivityInjector {
         super.onCreate();
         AndroidThreeTen.init(this);
         if (BuildConfig.DEBUG) {
-            Timber.plant(new Timber.DebugTree());//TODO Install a Crashlytics tree in production
+            Timber.plant(new Timber.DebugTree());
         }
         AppInjector.init(this);
 

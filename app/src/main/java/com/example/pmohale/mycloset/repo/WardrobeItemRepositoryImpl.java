@@ -5,7 +5,6 @@ import android.arch.lifecycle.LiveData;
 import com.example.pmohale.mycloset.database.dao.WardrobeItemDao;
 import com.example.pmohale.mycloset.entity.WardrobeItem;
 import com.example.pmohale.mycloset.repo.internal.WardrobeItemRepository;
-import com.example.pmohale.mycloset.task.wardrobeitem.DeleteWardrobeItemAsyncTask;
 
 import java.util.List;
 
@@ -33,9 +32,6 @@ public class WardrobeItemRepositoryImpl implements WardrobeItemRepository {
 
     @Override
     public Completable addWardrobeItem(WardrobeItem item) {
-        if (item == null){
-            return Completable.error(new IllegalArgumentException("Wardrobe intem cannot be null"));
-        }
         return Completable.fromAction(() -> wardrobeItemDao.addItem(item));
     }
 
@@ -45,8 +41,8 @@ public class WardrobeItemRepositoryImpl implements WardrobeItemRepository {
     }
 
     @Override
-    public void deleteWardrobeItem(long id) {
-        new DeleteWardrobeItemAsyncTask(wardrobeItemDao, id).execute();
+    public Completable deleteWardrobeItem(long id) {
+        return Completable.fromAction(() -> wardrobeItemDao.deleteWardrobeItem(id));
     }
 
     @Override
