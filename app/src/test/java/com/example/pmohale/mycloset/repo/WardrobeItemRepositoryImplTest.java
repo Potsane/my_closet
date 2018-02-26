@@ -1,12 +1,17 @@
 package com.example.pmohale.mycloset.repo;
 
-import com.example.pmohale.mycloset.database.dao.WardrobeItemDao;
-import com.example.pmohale.mycloset.task.wardrobeitem.DeleteWardrobeItemAsyncTask;
+import android.arch.core.executor.testing.InstantTaskExecutorRule;
 
+import com.example.pmohale.mycloset.database.dao.WardrobeItemDao;
+import com.example.pmohale.mycloset.entity.WardrobeItem;
+import com.example.pmohale.mycloset.repo.internal.WardrobeItemRepository;
+
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.times;
@@ -19,21 +24,41 @@ import static org.mockito.Mockito.verify;
 public class WardrobeItemRepositoryImplTest {
 
     @Mock
-    DeleteWardrobeItemAsyncTask deleteWardrobeItemAsyncTask;
-
-    @Mock
     WardrobeItemDao wardrobeItemDao;
 
-    @InjectMocks
-    WardrobeItemRepositoryImpl wardrobeItemRepository;
+    private WardrobeItemRepository wardrobeItemRepository;
+
+    @Rule
+    public InstantTaskExecutorRule instantExecutorRule = new InstantTaskExecutorRule();
+
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+        wardrobeItemRepository = new WardrobeItemRepositoryImpl(wardrobeItemDao);
+    }
 
     @Test
-    public void shouldCallDAOToDeleteItem(){
-        long id = 1;
+    public void shouldCallDAOToAddItem() {
 
-        wardrobeItemRepository.deleteWardrobeItem(id);
+        WardrobeItem fakeItem = new WardrobeItem("description", "type", "color", "dress code", "weather condition");
+        wardrobeItemRepository.addWardrobeItem(fakeItem).test().onComplete();
 
-        verify(wardrobeItemDao, times(1)).deleteWardrobeItem(id);
+        verify(wardrobeItemDao, times(1)).addItem(fakeItem);
+    }
 
+    @Test
+    public void shouldCallDAOToDeleteItem() {
+
+        long fakeItemId = 1L;
+        wardrobeItemRepository.deleteWardrobeItem(fakeItemId).test().onComplete();
+
+        verify(wardrobeItemDao, times(1)).deleteWardrobeItem(fakeItemId);
+    }
+
+    @Test
+    public void shouldCallDAOtOGetAllWardrobeItems() {
+
+        wardrobeItemRepository.getAllWardrobeItems();
+        verify(wardrobeItemDao, times(1)).getAllItems();
     }
 }
